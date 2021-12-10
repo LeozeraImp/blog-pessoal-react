@@ -7,19 +7,34 @@ import { useHistory , useParams} from 'react-router';
 import useLocalStorage from 'react-use-localstorage';
 import { findByDisplayValue } from '@testing-library/dom';
 import { backdropUnstyledClasses } from '@mui/core';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReduces';
+import { toast } from 'react-toastify';
 
 
 function CadastroTema() {
     let history = useHistory();
     const {id} = useParams<{id: string}>();
-    const [token, setToken] = useLocalStorage("token");
     const [tema, setTema] = useState<Tema>({
         id: 0,
         descricao: ""
     })
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+        (state) => state.tokens
+    );
 
     useEffect(()=>{
         if(token == "" ){
+            toast.error("Você precisa estar logado!!", {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
             history.push("/login")
         }
     }, [token])
@@ -58,14 +73,32 @@ function CadastroTema() {
                     "Authorization": token
                 }
             })
-            alert("Tema atualizado com sucesso!!");
+            toast.success("Tema atualizado com sucesso!!", {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
         } else {
             post(`/temas`, tema, setTema, {
                 headers: {
                     "Authorization": token
                 }
             })
-            alert("Tema cadastrado com sucesso!!")
+            toast.success("Tema cadastrado com sucesso!!", {
+                position: "top-right",
+                autoClose: 2000,
+                hideProgressBar: false,
+                closeOnClick: true,
+                pauseOnHover: false,
+                draggable: false,
+                theme: "colored",
+                progress: undefined,
+            });
             }
             back()
         
