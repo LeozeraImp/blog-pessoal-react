@@ -4,7 +4,7 @@
 
 .imagem {
     
-        background-image: url(https://imgur.com/KPmWodh.jpg);
+        background-image: url(https://imgur.com/C5tB9da.jpg);
         background-repeat: no-repeat;
         width: 100vh;
         min-height: 100vh;
@@ -20,4 +20,8 @@
 
 .text-decorator-none {
     text-decoration: none;
+}
+
+.background-login {
+    background-color: cornflowerblue !important;
 }

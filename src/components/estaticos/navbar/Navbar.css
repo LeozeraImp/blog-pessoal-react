@@ -4,9 +4,14 @@
 }
 
 .color-nav {
-    background-color: black;
+    background-color:cornflowerblue;
 }
 
 .text-decorator-none{
     text-decoration: none;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
 }

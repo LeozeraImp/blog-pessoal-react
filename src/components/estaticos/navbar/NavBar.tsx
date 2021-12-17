@@ -35,11 +35,11 @@ function Navbar() {
         var navBarComponent;
 
         if(token !== ""){
-            navBarComponent = <AppBar position="static" >
+            navBarComponent = <AppBar position="static" className = "flex-navbar" >
             <Toolbar variant="dense" className = "color-nav">
                 <Box className = "cursor" >
                     <Typography variant="h5" color="inherit">
-                        BlogPessoal
+                        InsertheCoin
                     </Typography>
                 </Box>
 
